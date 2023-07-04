@@ -49,7 +49,9 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                 int heartRate = Integer.valueOf(heartRateText.getText().toString());
                 int systolic = Integer.valueOf(systolicPressureText.getText().toString());
                 int diastolic = Integer.valueOf(diastolicPressureText.getText().toString());
+
                 String comment = commentText.getText().toString();
+
                 LocalDate currentDate = null;
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                     currentDate = LocalDate.now();
