@@ -66,7 +66,8 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                 }
                 String today = dateString;
                 CardiacMeasurement patient = new CardiacMeasurement(today, systolic, diastolic, heartRate, comment);
-                mdatabase.child("users").push().setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
+                String key = mdatabase.push().getKey();
+                mdatabase.child("measurements").child(key).setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
