@@ -7,7 +7,7 @@
     tools:context=".HomeActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/CardiacMeasurementsList"
+        android:id="@+id/cardiacMeasurements"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
