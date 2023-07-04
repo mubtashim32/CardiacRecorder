@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.time.LocalDate;
@@ -18,6 +19,10 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        Intent intent = new Intent(HomeActivity.this, AddCardiacMeasurementActivity.class);
+        startActivity(intent);
 
         RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
 
