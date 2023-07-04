@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -57,6 +58,7 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                 String today = dateString;
                 CardiacMeasurement patient = new CardiacMeasurement(today, systolic, diastolic, heartRate, comment);
                 mdatabase.child("users").setValue(patient);
+                Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
             }
         });
     }

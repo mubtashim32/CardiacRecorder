@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -26,7 +29,11 @@ public class HomeActivity extends AppCompatActivity {
 
         RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
 
-        CardiacMeasurement cardiacMeasurement = new CardiacMeasurement(1, 2, 3, "Hello");
+        Date date = Calendar.getInstance().getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        String formattedDate = simpleDateFormat.format(date);
+
+        CardiacMeasurement cardiacMeasurement = new CardiacMeasurement(formattedDate,1, 2, 3, "Hello");
         cardiacMeasurementArrayList.add(cardiacMeasurement);
 
         CardiacMeasurementsAdapter cardiacMeasurementsAdapter = new CardiacMeasurementsAdapter(cardiacMeasurementArrayList);
