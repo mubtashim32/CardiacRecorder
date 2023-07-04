@@ -52,9 +52,9 @@ public class CardiacMeasurementsAdapter extends
         TextView systolicPressure = holder.systolicPressure;
         TextView diastolicPressure = holder.diastolicPressure;
         TextView heartRate = holder.heartRate;
-        systolicPressure.setText(Integer.toString(cardiacMeasurement.getSystolicPressure()));
-        diastolicPressure.setText(Integer.toString(cardiacMeasurement.getDiastolicPressure()));
-        heartRate.setText(Integer.toString(cardiacMeasurement.getHeartRate()));
+        systolicPressure.setText("Systolic Pressure: " + Integer.toString(cardiacMeasurement.getSystolicPressure()));
+        diastolicPressure.setText("Diastolic Pressure: " + Integer.toString(cardiacMeasurement.getDiastolicPressure()));
+        heartRate.setText("Heart Rate: " + Integer.toString(cardiacMeasurement.getHeartRate()));
     }
 
     @Override

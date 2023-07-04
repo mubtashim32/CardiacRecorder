@@ -39,10 +39,13 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int heartRate = Integer.getInteger(heartRateText.getText().toString());
+                System.out.println(heartRateText.getText().toString());
                 int systolic = Integer.getInteger(systolicPressureText.getText().toString());
                 int diastolic = Integer.getInteger(diastolicPressureText.getText().toString());
                 String comment = commentText.getText().toString();
+
                 LocalDate currentDate = null;
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                     currentDate = LocalDate.now();
