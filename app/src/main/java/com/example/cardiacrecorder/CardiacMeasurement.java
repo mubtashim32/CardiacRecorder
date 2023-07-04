@@ -12,6 +12,8 @@ public class CardiacMeasurement {
     private int heartRate;
     private String comment;
 
+    public CardiacMeasurement() {}
+
     public CardiacMeasurement(String measuredDate, int systolicPressure, int diastolicPressure, int heartRate, String comment) {
         this.measuredDate = measuredDate;
         this.systolicPressure = systolicPressure;
