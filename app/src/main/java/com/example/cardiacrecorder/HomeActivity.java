@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
         RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
 
-//        CardiacMeasurement cardiacMeasurement = new CardiacMeasurement(1, 2, 3, "Hello");
+        CardiacMeasurement cardiacMeasurement = new CardiacMeasurement(1, 2, 3, "Hello");
         cardiacMeasurementArrayList.add(cardiacMeasurement);
 
         CardiacMeasurementsAdapter cardiacMeasurementsAdapter = new CardiacMeasurementsAdapter(cardiacMeasurementArrayList);

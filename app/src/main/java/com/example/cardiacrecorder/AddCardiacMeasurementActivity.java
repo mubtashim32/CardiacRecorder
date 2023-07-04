@@ -55,8 +55,8 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                     dateString = currentDate.format(formatter);
                 }
                 String today = dateString;
-                CardiacMeasurement patient = new CardiacMeasurement();
-
+                CardiacMeasurement patient = new CardiacMeasurement(today, systolic, diastolic, heartRate, comment);
+                mdatabase.child("users").setValue(patient);
             }
         });
     }
