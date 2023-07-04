@@ -1,39 +1,31 @@
 package com.example.cardiacrecorder;
 
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class CardiacMeasurement {
-    private Date measuredDate;
-    private Calendar measuredTime;
+    private String measuredDate;
     private int systolicPressure;
     private int diastolicPressure;
     private int heartRate;
     private String comment;
 
-    public CardiacMeasurement(Date measuredDate, Calendar measuredTime, int systolicPressure, int diastolicPressure, int heartRate, String comment) {
+    public CardiacMeasurement(String measuredDate, int systolicPressure, int diastolicPressure, int heartRate, String comment) {
         this.measuredDate = measuredDate;
-        this.measuredTime = measuredTime;
         this.systolicPressure = systolicPressure;
         this.diastolicPressure = diastolicPressure;
         this.heartRate = heartRate;
         this.comment = comment;
     }
 
-    public Date getMeasuredDate() {
+    public String getMeasuredDate() {
         return measuredDate;
     }
 
-    public void setMeasuredDate(Date measuredDate) {
+    public void setMeasuredDate(String measuredDate) {
         this.measuredDate = measuredDate;
-    }
-
-    public Calendar getMeasuredTime() {
-        return measuredTime;
-    }
-
-    public void setMeasuredTime(Calendar measuredTime) {
-        this.measuredTime = measuredTime;
     }
 
     public int getSystolicPressure() {
