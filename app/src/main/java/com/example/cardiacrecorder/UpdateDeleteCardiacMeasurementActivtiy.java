@@ -38,7 +38,7 @@ public class UpdateDeleteCardiacMeasurementActivtiy extends AppCompatActivity {
         updateBtn = findViewById(R.id.update);
         deleteBtn = findViewById(R.id.delete);
 
-        mdatabase = FirebaseDatabase.getInstance().getReference();
+        mdatabase = FirebaseDatabase.getInstance().getReference("measurements");
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override

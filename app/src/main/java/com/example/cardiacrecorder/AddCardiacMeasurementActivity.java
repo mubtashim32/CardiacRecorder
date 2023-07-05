@@ -52,23 +52,28 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                 int heartRate = Integer.valueOf(heartRateText.getText().toString());
                 int systolic = Integer.valueOf(systolicPressureText.getText().toString());
                 int diastolic = Integer.valueOf(diastolicPressureText.getText().toString());
+
                 String comment = commentText.getText().toString();
                 Date date = Calendar.getInstance().getTime();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
                 String today = simpleDateFormat.format(date);
 
-                CardiacMeasurement patient = new CardiacMeasurement(today, systolic, diastolic, heartRate, comment);
-                mdatabase.child("users").push().setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AddCardiacMeasurementActivity.this, "Error", Toast.LENGTH_LONG).show();
-                    }
-                });
+                addData(new CardiacMeasurement(today, systolic, diastolic, heartRate, comment));
+            }
+        });
+    }
+
+    public void addData(CardiacMeasurement patient) {
+        String key = mdatabase.push().getKey();
+        mdatabase.child("measurements").child(key).setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AddCardiacMeasurementActivity.this, "Error", Toast.LENGTH_LONG).show();
             }
         });
     }
