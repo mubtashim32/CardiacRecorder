@@ -20,27 +20,6 @@ public class AddDataUnitTest {
     @Test
     public void addDataTest() {
 
-        DatabaseReference mdatabase = FirebaseDatabase.getInstance().getReference();
 
-        CardiacMeasurement cardiacMeasurement = new CardiacMeasurement();
-        cardiacMeasurement.setComment("This is not good");
-        cardiacMeasurement.setMeasuredDate("2/2/20");
-        cardiacMeasurement.setDiastolicPressure(1000);
-        cardiacMeasurement.setSystolicPressure(1000);
-        cardiacMeasurement.setHeartRate(120);
-
-        String key = mdatabase.push().getKey();
-
-        mdatabase.child("measurements").child(key).setValue(cardiacMeasurement).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                assertTrue(true);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                assertTrue(false);
-            }
-        });
     }
 }

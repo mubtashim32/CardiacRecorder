@@ -43,6 +43,7 @@ public class CardiacMeasurementsAdapter extends
             int sysloticPressure = cardiacMeasurement.getSystolicPressure();
             int diastolicPressure = cardiacMeasurement.getDiastolicPressure();
             int heartRate = cardiacMeasurement.getHeartRate();
+            String comment = cardiacMeasurement.getComment();
 
             Intent intent = new Intent(context, UpdateDeleteCardiacMeasurementActivtiy.class);
 
@@ -51,6 +52,7 @@ public class CardiacMeasurementsAdapter extends
             intent.putExtra("systolicPressure", Integer.toString(sysloticPressure));
             intent.putExtra("diastolicPressure", Integer.toString(diastolicPressure));
             intent.putExtra("heartRate", Integer.toString(heartRate));
+            intent.putExtra("comment", comment);
 
             context.startActivity(intent);
         }
