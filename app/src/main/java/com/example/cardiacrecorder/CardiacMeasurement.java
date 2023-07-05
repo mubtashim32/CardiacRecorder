@@ -7,6 +7,7 @@ import java.util.Date;
 
 public class CardiacMeasurement {
     private String id;
+    private String measuredTime;
     private String measuredDate;
     private int systolicPressure;
     private int diastolicPressure;
@@ -15,13 +16,22 @@ public class CardiacMeasurement {
 
     public CardiacMeasurement() {}
 
-    public CardiacMeasurement(String id, String measuredDate, int systolicPressure, int diastolicPressure, int heartRate, String comment) {
+    public CardiacMeasurement(String id, String measuredTime, String measuredDate, int systolicPressure, int diastolicPressure, int heartRate, String comment) {
         this.id = id;
         this.measuredDate = measuredDate;
+        this.measuredTime = measuredTime;
         this.systolicPressure = systolicPressure;
         this.diastolicPressure = diastolicPressure;
         this.heartRate = heartRate;
         this.comment = comment;
+    }
+
+    public String getMeasuredTime() {
+        return measuredTime;
+    }
+
+    public void setMeasuredTime(String measuredTime) {
+        this.measuredTime = measuredTime;
     }
 
     public String getId() {

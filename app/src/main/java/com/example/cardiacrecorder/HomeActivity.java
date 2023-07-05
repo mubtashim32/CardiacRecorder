@@ -36,44 +36,46 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        getSupportActionBar().hide();
+        setContentView(R.layout.activity_home);
 
 //        Intent intent = new Intent(HomeActivity.this, UpdateDeleteCardiacMeasurementActivtiy.class);
 //        startActivity(intent);
 
-        RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
-        cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
-        addMeasurement = findViewById(R.id.addMeasurement);
-
-        ArrayList<CardiacMeasurement> cardiacMeasurementArrayList = new ArrayList<>();
-        CardiacMeasurementsAdapter cardiacMeasurementsAdapter = new CardiacMeasurementsAdapter(HomeActivity.this, cardiacMeasurementArrayList);
-        cardiacMeasurements.setAdapter(cardiacMeasurementsAdapter);
-
-        cardiacMeasurements.setLayoutManager(new LinearLayoutManager(this));
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("measurements");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                cardiacMeasurementArrayList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    CardiacMeasurement cardiacMeasurement = dataSnapshot.getValue(CardiacMeasurement.class);
-                    cardiacMeasurementArrayList.add(cardiacMeasurement);
-                }
-                Collections.reverse(cardiacMeasurementArrayList);
-                cardiacMeasurementsAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-
-        addMeasurement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, AddCardiacMeasurementActivity.class);
-                startActivity(intent);
-            }
-        });
+//        RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
+//        cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
+//        addMeasurement = findViewById(R.id.addMeasurement);
+//
+//        ArrayList<CardiacMeasurement> cardiacMeasurementArrayList = new ArrayList<>();
+//        CardiacMeasurementsAdapter cardiacMeasurementsAdapter = new CardiacMeasurementsAdapter(HomeActivity.this, cardiacMeasurementArrayList);
+//        cardiacMeasurements.setAdapter(cardiacMeasurementsAdapter);
+//
+//        cardiacMeasurements.setLayoutManager(new LinearLayoutManager(this));
+//
+//        databaseReference = FirebaseDatabase.getInstance().getReference("measurements");
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                cardiacMeasurementArrayList.clear();
+//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                    CardiacMeasurement cardiacMeasurement = dataSnapshot.getValue(CardiacMeasurement.class);
+//                    cardiacMeasurementArrayList.add(cardiacMeasurement);
+//                }
+//                Collections.reverse(cardiacMeasurementArrayList);
+//                cardiacMeasurementsAdapter.notifyDataSetChanged();
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//            }
+//        });
+//
+//        addMeasurement.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(HomeActivity.this, AddCardiacMeasurementActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }
 //        Date date = Calendar.getInstance().getTime();
