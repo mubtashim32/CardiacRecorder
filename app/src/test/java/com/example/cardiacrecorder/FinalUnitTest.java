@@ -10,8 +10,29 @@ import org.junit.jupiter.api.Test;
 public class FinalUnitTest {
     @Test
     public void AddTest(){
-        CardiacMeasurement record = new CardiacMeasurement("1", "05/07/2023", 100, 100, 100, "good");
-        CardiacMeasurement record1 = new CardiacMeasurement("2", "05/07/2023", 100, 100, 100, "good");
+        CardiacMeasurement record = new CardiacMeasurement();
+        record.setHeartRate(100);
+        record.setSystolicPressure(100);
+        record.setDiastolicPressure(100);
+        record.setComment("bad condition");
+        record.setYear(2023);
+        record.setMonth(7);
+        record.setDate(5);
+        record.setHour(12);
+        record.setMinute(05);
+        record.setId("2");
+
+        CardiacMeasurement record1 = new CardiacMeasurement();
+        record1.setHeartRate(100);
+        record1.setSystolicPressure(100);
+        record1.setDiastolicPressure(100);
+        record1.setComment("good condition");
+        record1.setYear(2023);
+        record1.setMonth(7);
+        record1.setDate(5);
+        record1.setHour(12);
+        record1.setMinute(05);
+        record1.setId("1");
 
         FirebaseMockTest firebaseMockTest = new FirebaseMockTest();
         firebaseMockTest.add(record);
@@ -21,8 +42,29 @@ public class FinalUnitTest {
     }
     @Test
     public void DeleteTest(){
-        CardiacMeasurement record = new CardiacMeasurement("1", "05/07/2023", 100, 100, 100, "good");
-        CardiacMeasurement record1 = new CardiacMeasurement("2", "05/07/2023", 100, 100, 100, "good");
+        CardiacMeasurement record = new CardiacMeasurement();
+        record.setHeartRate(100);
+        record.setSystolicPressure(100);
+        record.setDiastolicPressure(100);
+        record.setComment("bad condition");
+        record.setYear(2023);
+        record.setMonth(7);
+        record.setDate(5);
+        record.setHour(12);
+        record.setMinute(05);
+        record.setId("2");
+
+        CardiacMeasurement record1 = new CardiacMeasurement();
+        record1.setHeartRate(100);
+        record1.setSystolicPressure(100);
+        record1.setDiastolicPressure(100);
+        record1.setComment("good condition");
+        record1.setYear(2023);
+        record1.setMonth(7);
+        record1.setDate(5);
+        record1.setHour(12);
+        record1.setMinute(05);
+        record1.setId("1");
 
         FirebaseMockTest firebaseMockTest = new FirebaseMockTest();
         firebaseMockTest.add(record);
@@ -34,8 +76,29 @@ public class FinalUnitTest {
     }
     @Test
     public void TestAddException(){
-        CardiacMeasurement record = new CardiacMeasurement("1", "05/07/2023", 100, 100, 100, "good");
-        CardiacMeasurement record1 = new CardiacMeasurement("2", "05/07/2023", 100, 100, 100, "good");
+        CardiacMeasurement record = new CardiacMeasurement();
+        record.setHeartRate(100);
+        record.setSystolicPressure(100);
+        record.setDiastolicPressure(100);
+        record.setComment("bad condition");
+        record.setYear(2023);
+        record.setMonth(7);
+        record.setDate(5);
+        record.setHour(12);
+        record.setMinute(05);
+        record.setId("2");
+
+        CardiacMeasurement record1 = new CardiacMeasurement();
+        record1.setHeartRate(100);
+        record1.setSystolicPressure(100);
+        record1.setDiastolicPressure(100);
+        record1.setComment("good condition");
+        record1.setYear(2023);
+        record1.setMonth(7);
+        record1.setDate(5);
+        record1.setHour(12);
+        record1.setMinute(05);
+        record1.setId("1");
 
         FirebaseMockTest firebaseMockTest = new FirebaseMockTest();
         firebaseMockTest.add(record);
@@ -47,9 +110,29 @@ public class FinalUnitTest {
     }
     @Test
     public void TestDeleteException(){
-        CardiacMeasurement record = new CardiacMeasurement("1", "05/07/2023", 100, 100, 100, "good");
-        CardiacMeasurement record1 = new CardiacMeasurement("2", "05/07/2023", 100, 100, 100, "good");
+        CardiacMeasurement record = new CardiacMeasurement();
+        record.setHeartRate(100);
+        record.setSystolicPressure(100);
+        record.setDiastolicPressure(100);
+        record.setComment("bad condition");
+        record.setYear(2023);
+        record.setMonth(7);
+        record.setDate(5);
+        record.setHour(12);
+        record.setMinute(05);
+        record.setId("2");
 
+        CardiacMeasurement record1 = new CardiacMeasurement();
+        record1.setHeartRate(100);
+        record1.setSystolicPressure(100);
+        record1.setDiastolicPressure(100);
+        record1.setComment("good condition");
+        record1.setYear(2023);
+        record1.setMonth(7);
+        record1.setDate(5);
+        record1.setHour(12);
+        record1.setMinute(05);
+        record1.setId("1");
         FirebaseMockTest firebaseMockTest = new FirebaseMockTest();
         firebaseMockTest.add(record);
         firebaseMockTest.add(record1);
@@ -61,20 +144,36 @@ public class FinalUnitTest {
     }
     @Test
     public void UpdateTest(){
-        CardiacMeasurement record = new CardiacMeasurement("1", "05/07/2023", 100, 100, 100, "good");
-        CardiacMeasurement record1 = new CardiacMeasurement("2", "05/07/2023", 100, 100, 100, "good");
+        CardiacMeasurement record = new CardiacMeasurement();
+        record.setHeartRate(100);
+        record.setSystolicPressure(100);
+        record.setDiastolicPressure(100);
+        record.setComment("bad condition");
+        record.setYear(2023);
+        record.setMonth(7);
+        record.setDate(5);
+        record.setHour(12);
+        record.setMinute(05);
+        record.setId("2");
+
+        CardiacMeasurement record1 = new CardiacMeasurement();
+        record1.setHeartRate(100);
+        record1.setSystolicPressure(100);
+        record1.setDiastolicPressure(100);
+        record1.setComment("good condition");
+        record1.setYear(2023);
+        record1.setMonth(7);
+        record1.setDate(5);
+        record1.setHour(12);
+        record1.setMinute(05);
+        record1.setId("1");
 
         FirebaseMockTest firebaseMockTest = new FirebaseMockTest();
         firebaseMockTest.add(record);
         firebaseMockTest.add(record1);
         firebaseMockTest.Update(record1);
 
-        record.setHeartRate(100);
-        record.setSystolicPressure(100);
-        record.setDiastolicPressure(100);
-        record.setComment("good condition");
-        record.setMeasuredDate("05/07/2023");
-        record.setId("277");
+        record1.setId("277");
 
         assertTrue(firebaseMockTest.getRecords().contains(record));
     }
