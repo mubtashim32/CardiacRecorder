@@ -54,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                cardiacMeasurementArrayList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     CardiacMeasurement cardiacMeasurement = dataSnapshot.getValue(CardiacMeasurement.class);
                     cardiacMeasurementArrayList.add(cardiacMeasurement);
