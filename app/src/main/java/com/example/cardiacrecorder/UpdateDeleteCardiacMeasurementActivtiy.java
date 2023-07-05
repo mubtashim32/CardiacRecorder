@@ -65,5 +65,7 @@ public class UpdateDeleteCardiacMeasurementActivtiy extends AppCompatActivity {
                 });
             }
         });
+
+        
     }
 }
