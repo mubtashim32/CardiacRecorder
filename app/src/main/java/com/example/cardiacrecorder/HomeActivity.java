@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-        Intent intent = new Intent(HomeActivity.this, AddCardiacMeasurementActivity.class);
+        Intent intent = new Intent(HomeActivity.this, UpdateDeleteCardiacMeasurementActivtiy.class);
         startActivity(intent);
 
         RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);

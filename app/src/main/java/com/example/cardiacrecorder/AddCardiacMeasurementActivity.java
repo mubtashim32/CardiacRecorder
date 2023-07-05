@@ -18,9 +18,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class AddCardiacMeasurementActivity extends AppCompatActivity {
 
@@ -50,19 +53,10 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                 int systolic = Integer.valueOf(systolicPressureText.getText().toString());
                 int diastolic = Integer.valueOf(diastolicPressureText.getText().toString());
                 String comment = commentText.getText().toString();
-                LocalDate currentDate = null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    currentDate = LocalDate.now();
-                }
-                DateTimeFormatter formatter = null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                }
-                String dateString = null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    dateString = currentDate.format(formatter);
-                }
-                String today = dateString;
+                Date date = Calendar.getInstance().getTime();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                String today = simpleDateFormat.format(date);
+
                 CardiacMeasurement patient = new CardiacMeasurement(today, systolic, diastolic, heartRate, comment);
                 mdatabase.child("users").push().setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
