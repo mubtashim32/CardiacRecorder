@@ -75,11 +75,32 @@ public class UpdateDeleteCardiacMeasurementActivtiy extends AppCompatActivity {
                      @Override
                      public void onSuccess(Void unused) {
                          Toast.makeText(UpdateDeleteCardiacMeasurementActivtiy.this, "Data Updated", Toast.LENGTH_LONG).show();
+                         Intent intent = new Intent(UpdateDeleteCardiacMeasurementActivtiy.this, HomeActivity.class);
+                         startActivity(intent);
                      }
                  }).addOnFailureListener(new OnFailureListener() {
                      @Override
                      public void onFailure(@NonNull Exception e) {
                          Toast.makeText(UpdateDeleteCardiacMeasurementActivtiy.this, "Error", Toast.LENGTH_LONG).show();
+                     }
+                 });
+             }
+         });
+
+         deleteBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 mdatabase.child(id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                     @Override
+                     public void onSuccess(Void unused) {
+                         Toast.makeText(UpdateDeleteCardiacMeasurementActivtiy.this, "Delete successful", Toast.LENGTH_LONG).show();
+                         Intent intent = new Intent(UpdateDeleteCardiacMeasurementActivtiy.this, HomeActivity.class);
+                         startActivity(intent);
+                     }
+                 }).addOnFailureListener(new OnFailureListener() {
+                     @Override
+                     public void onFailure(@NonNull Exception e) {
+                         Toast.makeText(UpdateDeleteCardiacMeasurementActivtiy.this, "Delete failed", Toast.LENGTH_LONG).show();
                      }
                  });
              }
