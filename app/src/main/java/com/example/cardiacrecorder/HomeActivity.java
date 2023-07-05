@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
@@ -53,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
                     CardiacMeasurement cardiacMeasurement = dataSnapshot.getValue(CardiacMeasurement.class);
                     cardiacMeasurementArrayList.add(cardiacMeasurement);
                 }
+                Collections.reverse(cardiacMeasurementArrayList);
                 cardiacMeasurementsAdapter.notifyDataSetChanged();
             }
             @Override

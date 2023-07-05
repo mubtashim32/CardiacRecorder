@@ -19,12 +19,14 @@ public class CardiacMeasurementsAdapter extends
         public TextView systolicPressure;
         public TextView diastolicPressure;
         public TextView heartRate;
+        public TextView date;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             itemView.setOnClickListener(this);
 
+            date = itemView.findViewById(R.id.date);
             systolicPressure = itemView.findViewById(R.id.systolicPressure);
             diastolicPressure = itemView.findViewById(R.id.diastolicPressure);
             heartRate = itemView.findViewById(R.id.heartRate);
@@ -78,11 +80,14 @@ public class CardiacMeasurementsAdapter extends
     public void onBindViewHolder(@NonNull CardiacMeasurementsAdapter.ViewHolder holder, int position) {
         CardiacMeasurement cardiacMeasurement = cardiacMeasurementArrayList.get(position);
 
+        TextView date = holder.date;
         TextView systolicPressure = holder.systolicPressure;
         TextView diastolicPressure = holder.diastolicPressure;
         TextView heartRate = holder.heartRate;
-        systolicPressure.setText("Systolic Pressure: " + Integer.toString(cardiacMeasurement.getSystolicPressure()));
-        diastolicPressure.setText("Diastolic Pressure: " + Integer.toString(cardiacMeasurement.getDiastolicPressure()));
+
+        date.setText(cardiacMeasurement.getMeasuredDate());
+        systolicPressure.setText(Integer.toString(cardiacMeasurement.getSystolicPressure()));
+        diastolicPressure.setText(Integer.toString(cardiacMeasurement.getDiastolicPressure()));
         heartRate.setText("Heart Rate: " + Integer.toString(cardiacMeasurement.getHeartRate()));
     }
 
