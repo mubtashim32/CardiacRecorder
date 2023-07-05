@@ -61,22 +61,22 @@
         app:layout_constraintVertical_bias="0.66" />
 
     <Button
-        android:id="@+id/addData"
+        android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Data"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintVertical_bias="0.956" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="286dp"
         android:layout_height="83dp"
-        android:text="Update Information"
+        android:text="Update/Edit Information"
         android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,5 +84,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.119" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

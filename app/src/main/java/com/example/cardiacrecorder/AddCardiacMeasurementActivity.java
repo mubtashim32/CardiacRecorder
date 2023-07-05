@@ -18,9 +18,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class AddCardiacMeasurementActivity extends AppCompatActivity {
 
@@ -51,33 +54,26 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                 int diastolic = Integer.valueOf(diastolicPressureText.getText().toString());
 
                 String comment = commentText.getText().toString();
+                Date date = Calendar.getInstance().getTime();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                String today = simpleDateFormat.format(date);
 
-                LocalDate currentDate = null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    currentDate = LocalDate.now();
-                }
-                DateTimeFormatter formatter = null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                }
-                String dateString = null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    dateString = currentDate.format(formatter);
-                }
-                String today = dateString;
-                String key = mdatabase.push().getKey();
-                CardiacMeasurement patient = new CardiacMeasurement(key, today, systolic, diastolic, heartRate, comment);
-                mdatabase.child("measurements").child(key).setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AddCardiacMeasurementActivity.this, "Error", Toast.LENGTH_LONG).show();
-                    }
-                });
+                addData(new CardiacMeasurement(today, systolic, diastolic, heartRate, comment));
+            }
+        });
+    }
+
+    public void addData(CardiacMeasurement patient) {
+        String key = mdatabase.push().getKey();
+        mdatabase.child("measurements").child(key).setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AddCardiacMeasurementActivity.this, "Error", Toast.LENGTH_LONG).show();
             }
         });
     }
