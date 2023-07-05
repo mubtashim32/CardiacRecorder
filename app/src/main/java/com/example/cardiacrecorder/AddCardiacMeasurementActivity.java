@@ -44,6 +44,9 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
     private ImageButton addDate;
     private ImageButton addTime;
     private DatabaseReference mdatabase;
+
+    private int yearVar, monthVar, dateVar;
+    private int hourVar, minuteVar;
     private boolean addDataStatus;
     public ArrayList<CardiacMeasurement> cardiacMeasurementArrayList;
     @Override
@@ -111,10 +114,9 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                 if (date.length() == 0) dateText.setError("Enter Date!");
                 if (time.length() == 0) dateText.setError("Enter Time!");
 
-
                 if (date.length() > 0 && time.length() > 0 && heartRate >= 0 && systolic >= 0 && diastolic >= 0) {
                     String key = mdatabase.push().getKey();
-                    CardiacMeasurement cardiacMeasurement = new CardiacMeasurement(key, date, time, systolic, diastolic, heartRate, comment);
+                    CardiacMeasurement cardiacMeasurement = new CardiacMeasurement(key, yearVar, monthVar, dateVar, hourVar, minuteVar, systolic, diastolic, heartRate, comment);
                     addData(cardiacMeasurement);
                 }
             }
@@ -125,6 +127,9 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int date) {
+                yearVar = year;
+                monthVar = month;
+                dateVar = date;
                 dateText.setText(date + "-" + month + "-" + year);
             }
         }, 2023, 7, 5);
@@ -136,6 +141,8 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                hourVar = hour;
+                minuteVar = minute;
                 timeText.setText(hour + ":" + minute);
             }
         }, 12, 0, true);
@@ -149,8 +156,8 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(AddCardiacMeasurementActivity.this, HomeActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(AddCardiacMeasurementActivity.this, HomeActivity.class);
+//                startActivity(intent);
                 addDataStatus = true;
             }
         }).addOnFailureListener(new OnFailureListener() {
