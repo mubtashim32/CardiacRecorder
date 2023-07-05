@@ -156,8 +156,8 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(AddCardiacMeasurementActivity.this, HomeActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(AddCardiacMeasurementActivity.this, HomeActivity.class);
+                startActivity(intent);
                 addDataStatus = true;
             }
         }).addOnFailureListener(new OnFailureListener() {

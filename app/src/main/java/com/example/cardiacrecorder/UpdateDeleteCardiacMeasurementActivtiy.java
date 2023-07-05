@@ -1,42 +1,42 @@
-//package com.example.cardiacrecorder;
-//
-//import androidx.annotation.NonNull;
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.content.Intent;
-//import android.os.Bundle;
-//
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.EditText;
-//
-//import android.widget.Toast;
-//
-//import com.google.android.gms.tasks.OnFailureListener;
-//import com.google.android.gms.tasks.OnSuccessListener;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
-//
-//import java.text.SimpleDateFormat;
-//import java.util.Calendar;
-//import java.util.Date;
-//import java.util.Locale;
-//
-//public class UpdateDeleteCardiacMeasurementActivtiy extends AppCompatActivity {
-//
-//    private EditText heartRateText;
-//    private EditText systolicPressureText;
-//    private EditText diastolicPressureText;
-//    private EditText commentText;
-//    private EditText dateText;
-//    private EditText timeText;
-//    private Button updateBtn, deleteBtn;
-//    private DatabaseReference mdatabase;
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_update_delete_cardiac_measurement_activtiy);
-//
+package com.example.cardiacrecorder;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+public class UpdateDeleteCardiacMeasurementActivtiy extends AppCompatActivity {
+
+    private EditText heartRateText;
+    private EditText systolicPressureText;
+    private EditText diastolicPressureText;
+    private EditText commentText;
+    private EditText dateText;
+    private EditText timeText;
+    private Button updateBtn, deleteBtn;
+    private DatabaseReference mdatabase;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_update_delete_cardiac_measurement_activtiy);
+
 //        Intent intent = getIntent();
 //        String id = intent.getStringExtra("id");
 //        String date = intent.getStringExtra("date");
@@ -146,5 +146,5 @@
 //                 });
 //             }
 //         });
-//    }
-//}
+    }
+}
