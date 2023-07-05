@@ -20,4 +20,4 @@ With its intuitive user interface, extensive features, and convenient experience
 
 ## More Information
 
-For more details about the CardiacRecorder Android application project, please visit the [project repository](link_to_repository).
+For more details about the CardiacRecorder Android application project, please visit the [project repository](https://github.com/mubtashim32/CardiacRecorder/wiki).
