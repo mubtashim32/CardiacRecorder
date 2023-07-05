@@ -73,6 +73,7 @@ public class SignupActivity extends AppCompatActivity {
                     User user = new User(fuser.getUid(), namex, emailx, passwordx);
 
                     ref.child(fuser.getUid()).child("info").setValue(user);
+                    startActivity(new Intent(SignupActivity.this, HomeActivity.class));
                     Toast.makeText(SignupActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(SignupActivity.this, "Registration Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
