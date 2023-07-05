@@ -56,6 +56,12 @@ public class CardiacMeasurementsAdapter extends
             Intent intent = new Intent(context, UpdateDeleteCardiacMeasurementActivtiy.class);
 
             intent.putExtra("id", id);
+//            intent.putExtra("date", Integer.toString(date));
+//            intent.putExtra("month", Integer.toString(month));
+//            intent.putExtra("year", Integer.toString(year));
+//            intent.putExtra("hour", Integer.toString(hour));
+//            intent.putExtra("minute", Integer.toString(minute));
+
             intent.putExtra("date", date);
             intent.putExtra("month", month);
             intent.putExtra("year", year);
