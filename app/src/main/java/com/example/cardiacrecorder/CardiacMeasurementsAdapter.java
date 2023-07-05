@@ -2,6 +2,7 @@ package com.example.cardiacrecorder;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,6 +118,14 @@ public class CardiacMeasurementsAdapter extends
         systolicPressure.setText(Integer.toString(cardiacMeasurement.getSystolicPressure()));
         diastolicPressure.setText(Integer.toString(cardiacMeasurement.getDiastolicPressure()));
         heartRate.setText("Heart Rate: " + cardiacMeasurement.getHeartRate());
+        int sbp = cardiacMeasurement.getSystolicPressure(), dbp = cardiacMeasurement.getDiastolicPressure();
+        if (sbp < 90 || sbp > 140) {
+            systolicPressure.setTextColor(Color.parseColor("#D32F2F"));
+        }
+        if (dbp < 60 || dbp > 90) {
+            diastolicPressure.setTextColor(Color.parseColor("#D32F2F"));
+        }
+
     }
 
     @Override

@@ -47,51 +47,50 @@ public class HomeActivity extends AppCompatActivity {
         firebaseUser = firebaseAuth.getCurrentUser();
         if (firebaseUser == null) {
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-        }
+        } else {
+            RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
+            cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
+            addMeasurement = findViewById(R.id.addMeasurement);
+            logout = findViewById(R.id.logout);
 
+            ArrayList<CardiacMeasurement> cardiacMeasurementArrayList = new ArrayList<>();
+            CardiacMeasurementsAdapter cardiacMeasurementsAdapter = new CardiacMeasurementsAdapter(HomeActivity.this, cardiacMeasurementArrayList);
+            cardiacMeasurements.setAdapter(cardiacMeasurementsAdapter);
 
-        RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
-        cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
-        addMeasurement = findViewById(R.id.addMeasurement);
-        logout = findViewById(R.id.logout);
+            cardiacMeasurements.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<CardiacMeasurement> cardiacMeasurementArrayList = new ArrayList<>();
-        CardiacMeasurementsAdapter cardiacMeasurementsAdapter = new CardiacMeasurementsAdapter(HomeActivity.this, cardiacMeasurementArrayList);
-        cardiacMeasurements.setAdapter(cardiacMeasurementsAdapter);
-
-        cardiacMeasurements.setLayoutManager(new LinearLayoutManager(this));
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("users").child(firebaseUser.getUid()).child("measurements");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                cardiacMeasurementArrayList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    CardiacMeasurement cardiacMeasurement = dataSnapshot.getValue(CardiacMeasurement.class);
-                    cardiacMeasurementArrayList.add(cardiacMeasurement);
+            databaseReference = FirebaseDatabase.getInstance().getReference("users").child(firebaseUser.getUid()).child("measurements");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    cardiacMeasurementArrayList.clear();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        CardiacMeasurement cardiacMeasurement = dataSnapshot.getValue(CardiacMeasurement.class);
+                        cardiacMeasurementArrayList.add(cardiacMeasurement);
+                    }
+                    Collections.reverse(cardiacMeasurementArrayList);
+                    cardiacMeasurementsAdapter.notifyDataSetChanged();
                 }
-                Collections.reverse(cardiacMeasurementArrayList);
-                cardiacMeasurementsAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
 
-        addMeasurement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, AddCardiacMeasurementActivity.class);
-                startActivity(intent);
-            }
-        });
+            addMeasurement.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(HomeActivity.this, AddCardiacMeasurementActivity.class);
+                    startActivity(intent);
+                }
+            });
 
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-            }
-        });
+            logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                }
+            });
+        }
     }
 }
