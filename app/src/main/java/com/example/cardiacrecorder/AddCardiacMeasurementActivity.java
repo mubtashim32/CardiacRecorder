@@ -65,8 +65,8 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                     dateString = currentDate.format(formatter);
                 }
                 String today = dateString;
-                CardiacMeasurement patient = new CardiacMeasurement(today, systolic, diastolic, heartRate, comment);
                 String key = mdatabase.push().getKey();
+                CardiacMeasurement patient = new CardiacMeasurement(key, today, systolic, diastolic, heartRate, comment);
                 mdatabase.child("measurements").child(key).setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

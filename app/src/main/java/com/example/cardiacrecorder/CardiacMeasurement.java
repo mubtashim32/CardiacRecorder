@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class CardiacMeasurement {
+    private String id;
     private String measuredDate;
     private int systolicPressure;
     private int diastolicPressure;
@@ -14,12 +15,21 @@ public class CardiacMeasurement {
 
     public CardiacMeasurement() {}
 
-    public CardiacMeasurement(String measuredDate, int systolicPressure, int diastolicPressure, int heartRate, String comment) {
+    public CardiacMeasurement(String id, String measuredDate, int systolicPressure, int diastolicPressure, int heartRate, String comment) {
+        this.id = id;
         this.measuredDate = measuredDate;
         this.systolicPressure = systolicPressure;
         this.diastolicPressure = diastolicPressure;
         this.heartRate = heartRate;
         this.comment = comment;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMeasuredDate() {
