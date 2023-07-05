@@ -16,6 +16,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildTypes {
         release {
             minifyEnabled false
@@ -25,6 +26,11 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
     }
 }
 
@@ -37,6 +43,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'com.google.firebase:firebase-auth:21.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.testng:testng:6.9.6'
 
 //    testImplementation 'junit:junit:4.12'
 //    testImplementation 'org.mockito:mockito-core:1.10.19'
@@ -67,7 +75,12 @@ dependencies {
 
     // To use the androidx.test.runner APIs
     androidTestImplementation "androidx.test:runner:1.5.2"
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // To use android test orchestrator
     androidTestUtil "androidx.test:orchestrator:1.4.2"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
 }
+
