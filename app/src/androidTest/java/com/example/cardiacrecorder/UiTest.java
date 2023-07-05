@@ -1,8 +1,11 @@
 package com.example.cardiacrecorder;
 
+import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.matcher.ViewMatchers.*;
 import static androidx.test.espresso.action.ViewActions.*;
+
+import static org.hamcrest.CoreMatchers.anything;
 
 import androidx.annotation.NonNull;
 import androidx.test.espresso.Espresso;
@@ -25,15 +28,11 @@ public class UiTest {
     @Rule
     public ActivityScenarioRule<HomeActivity> activityScenarioRule = new ActivityScenarioRule<>(HomeActivity.class);
 
-    @Test
-    public void testAdd() {
-        onView(withId(R.id.addMeasurement)).perform(click());
-
-        String systolicPressure = "1005";
-        String diastolicPressure = "1005";
-        String heartRate = "1005";
-        String comment = "1005";
-
+    String systolicPressure = "1005";
+    String diastolicPressure = "1005";
+    String heartRate = "1005";
+    String comment = "1005";
+    public void placeDummyInformation() {
         onView(withId(R.id.systolicPressure)).perform(typeText(systolicPressure));
         Espresso.pressBack();
         onView(withId(R.id.diastolicPressure)).perform(typeText(diastolicPressure));
@@ -42,8 +41,12 @@ public class UiTest {
         Espresso.pressBack();
         onView(withId(R.id.comment)).perform(typeText(comment));
         Espresso.pressBack();
-        onView(withId(R.id.addData)).perform(click());
+    }
+    @Test
+    public void testAdd() {
+        onView(withId(R.id.addMeasurement)).perform(click());
 
+        onView(withId(R.id.addData)).perform(click());
         FirebaseDatabase.getInstance().getReference().child("measurements").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -73,8 +76,11 @@ public class UiTest {
 
     }
 
-    public void testUpdate() {
-
+    @Test
+    public void testUpdate() throws InterruptedException {
+        activityScenarioRule.getScenario();
+        Thread.sleep(1000);
+        onData(anything()).inAdapterView(withId(R.id.cardiacMeasurements)).atPosition(0).perform(click());
     }
     public void testDelete() {
 
