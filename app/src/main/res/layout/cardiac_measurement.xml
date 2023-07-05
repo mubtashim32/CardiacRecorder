@@ -3,78 +3,181 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="150dp"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/systolicPressure"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:text="Systolic Pressure: "
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
         android:gravity="center"
-        android:textSize="20sp"/>
+        android:text="123"
+
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/diastolicPressure"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:text="Diastolic Pressure: "
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/systolicPressure"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
         android:gravity="center"
-        android:textSize="20sp"/>
+        android:text="123"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/heartRate"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
         android:gravity="center"
-        android:text="Heart Rate: "
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:text="123"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+    <TextView
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.6" />
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/date"
+        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="Systolic BP"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="Diastolic BP"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        android:layout_marginTop="20dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="40dp" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="80dp" />
+        app:layout_constraintGuide_begin="60dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/heart_rate" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--<LinearLayout-->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
+
+
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content">-->
+
+<!--<TextView-->
+<!--    android:id="@+id/systolicPressure"-->
+<!--    android:layout_width="220dp"-->
+<!--    android:layout_height="500dp"-->
+<!--    android:text="Systolic Pressure: "-->
+<!--    app:layout_constraintBottom_toTopOf="@+id/guideline3"-->
+<!--    app:layout_constraintEnd_toStartOf="@+id/guideline2"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    android:gravity="center"-->
+<!--    android:textSize="20sp"/>-->
+
+<!--<TextView-->
+<!--    android:id="@+id/diastolicPressure"-->
+<!--    android:layout_width="220dp"-->
+<!--    android:layout_height="40dp"-->
+<!--    android:text="Diastolic Pressure: "-->
+<!--    app:layout_constraintEnd_toStartOf="@+id/guideline2"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toBottomOf="@+id/systolicPressure"-->
+<!--    android:gravity="center"-->
+<!--    android:textSize="20sp"/>-->
+
+<!--<TextView-->
+<!--    android:id="@+id/heartRate"-->
+<!--    android:layout_width="150dp"-->
+<!--    android:layout_height="80dp"-->
+<!--    android:text="Heart Rate: "-->
+<!--    app:layout_constraintBottom_toTopOf="@+id/guideline4"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="@+id/guideline2"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    android:gravity="center"-->
+<!--    android:textSize="20sp"/>-->
+
+<!--<androidx.constraintlayout.widget.Guideline-->
+<!--    android:id="@+id/guideline2"-->
+<!--    android:layout_width="wrap_content"-->
 <!--    android:layout_height="wrap_content"-->
 <!--    android:orientation="vertical"-->
-<!--    tools:layout_editor_absoluteX="1dp"-->
-<!--    tools:layout_editor_absoluteY="1dp"-->
-<!--    android:padding="20dp"-->
-<!--    >-->
+<!--    app:layout_constraintGuide_percent="0.6" />-->
 
-<!--    -->
-<!--</LinearLayout>-->
+<!--<androidx.constraintlayout.widget.Guideline-->
+<!--    android:id="@+id/guideline3"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="horizontal"-->
+<!--    app:layout_constraintGuide_begin="40dp" />-->
+
+<!--<androidx.constraintlayout.widget.Guideline-->
+<!--    android:id="@+id/guideline4"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="horizontal"-->
+<!--    app:layout_constraintGuide_begin="80dp" />-->
+
+
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
