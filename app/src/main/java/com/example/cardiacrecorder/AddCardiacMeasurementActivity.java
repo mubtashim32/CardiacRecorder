@@ -58,22 +58,19 @@ public class AddCardiacMeasurementActivity extends AppCompatActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
                 String today = simpleDateFormat.format(date);
 
-                addData(new CardiacMeasurement(today, systolic, diastolic, heartRate, comment));
-            }
-        });
-    }
-
-    public void addData(CardiacMeasurement patient) {
-        String key = mdatabase.push().getKey();
-        mdatabase.child("measurements").child(key).setValue(patient).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(AddCardiacMeasurementActivity.this, "Error", Toast.LENGTH_LONG).show();
+                String key = mdatabase.push().getKey();
+                CardiacMeasurement cardiacMeasurement = new CardiacMeasurement(key, today, systolic, diastolic, heartRate, comment);
+                mdatabase.child("measurements").child(key).setValue(cardiacMeasurement).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(AddCardiacMeasurementActivity.this, "Data Added", Toast.LENGTH_LONG).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AddCardiacMeasurementActivity.this, "Error", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }
