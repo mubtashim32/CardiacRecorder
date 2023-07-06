@@ -50,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         firebaseUser = firebaseAuth.getCurrentUser();
         if (firebaseUser == null) {
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+            finish();
         } else {
             cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
             cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
