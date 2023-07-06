@@ -1,11 +1,17 @@
 package com.example.cardiacrecorder;
 import java.util.ArrayList;
 
+/**
+ * Represents the user with necessary information for login and data storing
+ */
 public class User {
     String id;
     String name, email;
     String password;
 
+    /**
+     * Empty constructor for reading data from firebase
+     */
     public User() {
 
     }

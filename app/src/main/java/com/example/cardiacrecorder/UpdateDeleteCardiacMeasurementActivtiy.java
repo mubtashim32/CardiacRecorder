@@ -23,6 +23,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * Updates and Deletes data from fireabse records
+ */
 public class UpdateDeleteCardiacMeasurementActivtiy extends AppCompatActivity {
 
     private EditText heartRateText;

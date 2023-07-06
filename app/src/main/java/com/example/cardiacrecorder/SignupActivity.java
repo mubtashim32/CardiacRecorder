@@ -24,6 +24,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Provide signup facility for the application
+ */
 public class SignupActivity extends AppCompatActivity {
     EditText name, email, password;
     Button register;
@@ -53,6 +56,10 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Initializing widgets with views by a id
+     */
     void initialize() {
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
@@ -61,6 +68,10 @@ public class SignupActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference().child("Users");
     }
+
+    /**
+     * Creates a new user and proceeds to home page
+     */
     private void createUser() {
         String namex = name.getText().toString();
         String emailx = email.getText().toString();

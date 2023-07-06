@@ -13,9 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * Populates data in the recycler view
+ */
 public class CardiacMeasurementsAdapter extends
         RecyclerView.Adapter<CardiacMeasurementsAdapter.ViewHolder> {
 
+    /**
+     * Provides a direct references of each view in a measurement item
+     */
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView systolicPressure;
@@ -24,6 +30,10 @@ public class CardiacMeasurementsAdapter extends
         public TextView date;
         public TextView time;
 
+        /**
+         * Binds the views with widgets by id
+         * @param itemView
+         */
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -36,6 +46,10 @@ public class CardiacMeasurementsAdapter extends
             time = itemView.findViewById(R.id.time);
         }
 
+        /**
+         * On click listener for each item
+         * @param view measurement item view
+         */
         @Override
         public void onClick(View view) {
             int position = this.getAdapterPosition();
@@ -57,12 +71,6 @@ public class CardiacMeasurementsAdapter extends
             Intent intent = new Intent(context, UpdateDeleteCardiacMeasurementActivtiy.class);
 
             intent.putExtra("id", id);
-//            intent.putExtra("date", Integer.toString(date));
-//            intent.putExtra("month", Integer.toString(month));
-//            intent.putExtra("year", Integer.toString(year));
-//            intent.putExtra("hour", Integer.toString(hour));
-//            intent.putExtra("minute", Integer.toString(minute));
-
             intent.putExtra("date", date);
             intent.putExtra("month", month);
             intent.putExtra("year", year);
@@ -81,11 +89,23 @@ public class CardiacMeasurementsAdapter extends
     private ArrayList<CardiacMeasurement> cardiacMeasurementArrayList;
     private Context context;
 
+    /**
+     * Initializes the adapter
+     * @param context state of the application
+     * @param cardiacMeasurementArrayList list that contains the measurement items
+     */
     public CardiacMeasurementsAdapter(Context context, ArrayList<CardiacMeasurement> cardiacMeasurementArrayList) {
         this.context = context;
         this.cardiacMeasurementArrayList = cardiacMeasurementArrayList;
     }
 
+    /**
+     * Binding layout to view holder and returning the holder
+     * @param parent   The ViewGroup into which the new View will be added after it is bound to
+     *                 an adapter position.
+     * @param viewType The view type of the new View.
+     * @return the binded holder
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -98,6 +118,12 @@ public class CardiacMeasurementsAdapter extends
         return viewHolder;
     }
 
+    /**
+     * Populating the item view through holder
+     * @param holder   The ViewHolder which should be updated to represent the contents of the
+     *                 item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull CardiacMeasurementsAdapter.ViewHolder holder, int position) {
         CardiacMeasurement cardiacMeasurement = cardiacMeasurementArrayList.get(position);
@@ -128,6 +154,10 @@ public class CardiacMeasurementsAdapter extends
 
     }
 
+    /**
+     * Counts the number of items in the list
+     * @return the count of items
+     */
     @Override
     public int getItemCount() {
         return cardiacMeasurementArrayList.size();
