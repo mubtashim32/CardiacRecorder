@@ -2,6 +2,9 @@ package com.example.cardiacrecorder;
 
 import java.util.ArrayList;
 
+/**
+ * Used in unit testing as a fake firebase server
+ */
 public class FirebaseMockTest {
     private ArrayList<CardiacMeasurement> records = new ArrayList<>();
     public void add(CardiacMeasurement record){

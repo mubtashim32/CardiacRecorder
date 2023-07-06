@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Contains the information of a cardiac measurement
+ */
 public class CardiacMeasurement {
     private String id;
     private int year, month, date;
@@ -14,9 +17,25 @@ public class CardiacMeasurement {
     private int heartRate;
     private String comment;
 
+    /**
+     * Empty constructor is needed to read class object from firebase
+     */
     public CardiacMeasurement() {}
 
 
+    /**
+     * Creates a new Measurement of specified data
+     * @param id unique id of data
+     * @param year year when measured
+     * @param month month when measured
+     * @param date date when measued
+     * @param hour hour when measued
+     * @param minute minute when measued
+     * @param systolicPressure systolic pressure of the user in mm Hg
+     * @param diastolicPressure diastolic pressure of the user in mm Hd
+     * @param heartRate heart rate of the user in beats per min
+     * @param comment any comment about the situation of the user
+     */
     public CardiacMeasurement(String id, int year, int month, int date, int hour, int minute, int systolicPressure, int diastolicPressure, int heartRate, String comment) {
         this.id = id;
         this.year = year;
@@ -30,10 +49,18 @@ public class CardiacMeasurement {
         this.comment = comment;
     }
 
+    /**
+     * Returns the year when measured
+     * @return year when measured
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     * Sets the year of the measurement
+     * @param year year when measured
+     */
     public void setYear(int year) {
         this.year = year;
     }

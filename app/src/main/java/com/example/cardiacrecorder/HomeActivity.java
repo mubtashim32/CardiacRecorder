@@ -28,6 +28,9 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * Shows all measurements in a list
+ */
 public class HomeActivity extends AppCompatActivity {
 
     private FloatingActionButton addMeasurement;
@@ -48,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         if (firebaseUser == null) {
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
         } else {
-            RecyclerView cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
+            cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
             cardiacMeasurements = findViewById(R.id.cardiacMeasurements);
             addMeasurement = findViewById(R.id.addMeasurement);
             logout = findViewById(R.id.logout);

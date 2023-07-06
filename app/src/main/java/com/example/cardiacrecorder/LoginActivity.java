@@ -33,6 +33,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Provides login interface and authenticate to firebase server
+ */
 public class LoginActivity extends AppCompatActivity {
 
     EditText email, password;
@@ -80,6 +83,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Logins in a user to the app and shows all information
+     */
     private void loginUser() {
         String emailx = email.getText().toString();
         String passwordx = password.getText().toString();
